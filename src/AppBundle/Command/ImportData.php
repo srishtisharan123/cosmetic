@@ -125,6 +125,8 @@
                         $prod->getClassification()->setSkin($objBrick);
                     }
                     $prod->save();
+                    $emailSender = new \AppBundle\MailNotification();
+                    $emailSender->sendImportMail();
                 }
                     
                 }
@@ -308,6 +310,8 @@
                     $prod->setName($entry[$c++]);
                     $prod->setDescription($entry[$c++]);
                     $prod->save();
+                    $emailSender = new \AppBundle\MailNotification();
+                    $emailSender->sendImportMail();
                     }
                     catch(\Exception $e)
                     {

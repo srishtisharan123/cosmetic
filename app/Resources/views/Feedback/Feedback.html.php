@@ -77,7 +77,7 @@ input[type=submit]:hover {
         
                 $feedback->setKey($email); 
                 $feedback->setPublished(true); 
-                $feedback->setParentId(40); 
+                $feedback->setParentId(349); 
                 $feedback->setFirstname($firstname); 
                 $feedback->setLastname($lastname); 
                 $feedback->setEmail($email); 

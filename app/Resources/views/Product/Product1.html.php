@@ -26,14 +26,6 @@ $this->extend('layout.html.php');
 <style>
 * {
   box-sizing: border-box;
-  background-image: url('/Images/beauty4.jpg');
-  /*filter: blur(2px);
-  -webkit-filter: blur(2px);
-  */
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-  
 
 }
 table {
