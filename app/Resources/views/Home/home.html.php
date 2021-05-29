@@ -14,7 +14,7 @@ $this->extend('layout.html.php');
 </style>
 </head>
 
-<h2>Welcome to Beauty Store....</h2>
+<h1 style="text-align:center">Welcome to Beauty Store....</h1>
 
 <div>
   <img class="mySlides" src="/Images/beauty.jpg" style="width:100%">

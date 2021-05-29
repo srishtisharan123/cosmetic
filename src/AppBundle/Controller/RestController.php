@@ -46,7 +46,7 @@ use Pimcore\Model\DataObject\Product;
     }
 
     /**
-      * @Route("/webservice/filterProductList")
+      * @Route("/filterProductList")
       * @Method({"GET"})
       * @param Request $request
       * @return \Symfony\Component\HttpFoundation\JsonResponse

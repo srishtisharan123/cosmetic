@@ -17,7 +17,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'ImportData',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1619330768,
+   'modificationDate' => 1619764277,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -77,15 +77,10 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
             array (
               0 => 
               array (
-                'key' => 'Brand',
-                'value' => 'Brand',
-              ),
-              1 => 
-              array (
                 'key' => 'Category',
                 'value' => 'Category',
               ),
-              2 => 
+              1 => 
               array (
                 'key' => 'Product',
                 'value' => 'Product',

@@ -37,7 +37,8 @@
                 }
                 if($class=="Product")
                 {
-                $count=1;
+                $count=0;
+                $row=0;
                 foreach($a as $entry)
                 {
                     $c=0;
@@ -125,8 +126,6 @@
                         $prod->getClassification()->setSkin($objBrick);
                     }
                     $prod->save();
-                    $emailSender = new \AppBundle\MailNotification();
-                    $emailSender->sendImportMail();
                 }
                     
                 }
@@ -186,7 +185,7 @@
                         $msg.="Invalid value in quantity feild\n";
                         $flag++;
                     }
-                    $check=is_numeric($entry[$c]);
+                    $check=is_numeric($entry[$c++]);
                     if($check==false)
                     {
                         $msg.="Invalid value in price feild\n";
@@ -274,6 +273,7 @@
                     //     }
                     // }
                 }
+                $count++;
                     if($flag>0)
                     {
                         $this->dump('failed');
@@ -282,6 +282,8 @@
                     {
                         $msg.="Row ".$count." of product table is imported\n";
                         $this->dump("saved");
+                        $row++;
+                        
                         
                     }
                 
@@ -292,10 +294,19 @@
                 $logmsg->setName($msg);
                 $logmsg->save();
                 }
+                // p_r($row);
+                // p_r($count);
+                // die();
+                 if($row==$count)
+                 {
+                $emailSender = new \AppBundle\MailNotification();
+                $emailSender->sendImportMail();
+                }
             }
             else if($class=="Category")
            {
-                $count=1; 
+                $count=0;
+                $row=0; 
                 foreach($a as $entry)
                 {
                     $c=0;
@@ -310,8 +321,6 @@
                     $prod->setName($entry[$c++]);
                     $prod->setDescription($entry[$c++]);
                     $prod->save();
-                    $emailSender = new \AppBundle\MailNotification();
-                    $emailSender->sendImportMail();
                     }
                     catch(\Exception $e)
                     {
@@ -327,6 +336,7 @@
                         $flag++;
                     }
                     }
+                    $count++;
                     if($flag>0)
                     {
                         $this->dump('failed');
@@ -335,6 +345,7 @@
                     {
                         $msg.="Row ".$count." of category table is imported\n";
                         $this->dump("saved");
+                        $row++;
                         
                     }
                 
@@ -345,8 +356,13 @@
                 $logmsg->setName($msg);
                 $logmsg->save();
                 }
+                if($row==$count)
+                {
+                $emailSender = new \AppBundle\MailNotification();
+                $emailSender->sendImportMail();
+                }
             }
-                $count++;
+                
                 $entries=new \Pimcore\Model\DataObject\ImportData\Listing();
                 foreach($entries as $entry)
                 {
